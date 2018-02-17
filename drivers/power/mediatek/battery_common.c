@@ -2987,29 +2987,29 @@ static long adc_cali_ioctl(struct file *file, unsigned int cmd, unsigned long ar
 		} else if (charging_level_data[0] == 3) {
 			charging_level_data[0] = CHARGE_CURRENT_450_00_MA;
 		} else if (charging_level_data[0] == 4) {
-			charging_level_data[0] = CHARGE_CURRENT_550_00_MA;
+			charging_level_data[0] = CHARGE_CURRENT_500_00_MA;
 		} else if (charging_level_data[0] == 5) {
-			charging_level_data[0] = CHARGE_CURRENT_650_00_MA;
+			charging_level_data[0] = CHARGE_CURRENT_550_00_MA;
 		} else if (charging_level_data[0] == 6) {
-			charging_level_data[0] = CHARGE_CURRENT_700_00_MA;
+			charging_level_data[0] = CHARGE_CURRENT_600_00_MA;
 		} else if (charging_level_data[0] == 7) {
-			charging_level_data[0] = CHARGE_CURRENT_800_00_MA;
+			charging_level_data[0] = CHARGE_CURRENT_650_00_MA;
 		} else if (charging_level_data[0] == 8) {
-			charging_level_data[0] = CHARGE_CURRENT_900_00_MA;
+			charging_level_data[0] = CHARGE_CURRENT_700_00_MA;
 		} else if (charging_level_data[0] == 9) {
-			charging_level_data[0] = CHARGE_CURRENT_1000_00_MA;
+			charging_level_data[0] = CHARGE_CURRENT_750_00_MA;
 		} else if (charging_level_data[0] == 10) {
-			charging_level_data[0] = CHARGE_CURRENT_1100_00_MA;
+			charging_level_data[0] = CHARGE_CURRENT_800_00_MA;
 		} else if (charging_level_data[0] == 11) {
-			charging_level_data[0] = CHARGE_CURRENT_1200_00_MA;
+			charging_level_data[0] = CHARGE_CURRENT_850_00_MA;
 		} else if (charging_level_data[0] == 12) {
-			charging_level_data[0] = CHARGE_CURRENT_1300_00_MA;
+			charging_level_data[0] = CHARGE_CURRENT_900_00_MA;
 		} else if (charging_level_data[0] == 13) {
-			charging_level_data[0] = CHARGE_CURRENT_1400_00_MA;
+			charging_level_data[0] = CHARGE_CURRENT_950_00_MA;
 		} else if (charging_level_data[0] == 14) {
-			charging_level_data[0] = CHARGE_CURRENT_1500_00_MA;
+			charging_level_data[0] = CHARGE_CURRENT_1000_00_MA;
 		} else if (charging_level_data[0] == 15) {
-			charging_level_data[0] = CHARGE_CURRENT_1600_00_MA;
+			charging_level_data[0] = CHARGE_CURRENT_1050_00_MA;
 		} else {
 			charging_level_data[0] = CHARGE_CURRENT_450_00_MA;
 		}

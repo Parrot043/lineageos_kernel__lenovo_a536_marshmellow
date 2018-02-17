@@ -1091,10 +1091,15 @@ static inline void check_cable_type(void)
                             
 				break;
 			case LONG_MD:
-				ACCDET_DEBUG("[Accdet] Long press middle (0x%x)\n", multi_key);
-
-                                 notify_sendKeyEvent(ACC_END_CALL);
-				break;
+ACCDET_DEBUG("[Accdet] Long press middle (0x%x)\n", multi_key);
+if(call_status != 0) {
+notify_sendKeyEvent(ACC_END_CALL);
+} else {
+input_report_key(kpd_accdet_dev, KEY_PREVIOUSSONG, 1);
+input_report_key(kpd_accdet_dev, KEY_PREVIOUSSONG, 0);
+input_sync(kpd_accdet_dev);
+}
+break;
 			case LONG_DW:
 				ACCDET_DEBUG("[Accdet] Long press down (0x%x)\n", multi_key);			
                                  send_key_event(DW_KEY, KEYUP_FLAG);
