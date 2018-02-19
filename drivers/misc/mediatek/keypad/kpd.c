@@ -19,7 +19,11 @@
 
 /*kpd.h file path: ALPS/mediatek/kernel/include/linux */
 #include <linux/kpd.h>
-
+#ifdef CONFIG_OF
+#include <linux/of.h>
+#include <linux/of_address.h>
+#include <linux/of_irq.h>
+#endif
 #ifdef CONFIG_TOUCHSCREEN_PREVENT_SLEEP
 #ifdef CONFIG_TOUCHSCREEN_SWEEP2WAKE
 #include <linux/input/sweep2wake.h>
@@ -28,7 +32,6 @@
 #include <linux/input/doubletap2wake.h>
 #endif
 #endif
-
 #define KPD_NAME	"mtk-kpd"
 //#define USE_EARLY_SUSPEND
 //#define MTK_KP_WAKESOURCE	/* this is for auto set wake up source */
@@ -841,6 +844,7 @@ static int kpd_pdrv_probe(struct platform_device *pdev)
 
 #ifdef KPD_KEY_MAP
 		__set_bit(KPD_KEY_MAP, kpd_input_dev->keybit);
+#endif
 #ifdef CONFIG_TOUCHSCREEN_PREVENT_SLEEP
 #ifdef CONFIG_TOUCHSCREEN_SWEEP2WAKE
 	sweep2wake_setdev(kpd_input_dev);
@@ -849,7 +853,6 @@ static int kpd_pdrv_probe(struct platform_device *pdev)
 	doubletap2wake_setdev(kpd_input_dev);
 #endif
 #endif
-
 	kpd_input_dev->dev.parent = &pdev->dev;
 	r = input_register_device(kpd_input_dev);
 	if (r) {

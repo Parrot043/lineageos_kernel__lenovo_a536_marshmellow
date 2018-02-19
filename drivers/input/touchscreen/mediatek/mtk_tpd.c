@@ -27,9 +27,6 @@
 #include <linux/device.h>
 #include <linux/slab.h>
 #include <asm/uaccess.h>
-#if defined(CONFIG_MTK_S3320) || defined(CONFIG_MTK_S3320_47) || defined(CONFIG_MTK_MIT200) || defined(CONFIG_TOUCHSCREEN_SYNAPTICS_S3528) || defined(CONFIG_MTK_S7020)
-#include <linux/input/mt.h>
-#endif /* CONFIG_MTK_S3320 */
 #ifdef CONFIG_TOUCHSCREEN_PREVENT_SLEEP
 #ifdef CONFIG_TOUCHSCREEN_SWEEP2WAKE
 #include <linux/input/sweep2wake.h>
@@ -38,6 +35,9 @@
 #include <linux/input/doubletap2wake.h>
 #endif
 #endif
+#if defined(CONFIG_MTK_S3320) || defined(CONFIG_MTK_S3320_47) || defined(CONFIG_MTK_MIT200) || defined(CONFIG_TOUCHSCREEN_SYNAPTICS_S3528) || defined(CONFIG_MTK_S7020)
+#include <linux/input/mt.h>
+#endif /* CONFIG_MTK_S3320 */
 /* for magnify velocity******************************************** */
 #define TOUCH_IOC_MAGIC 'A'
 
@@ -353,7 +353,6 @@ static void eros_resume(struct early_suspend *h) {
 }
 
 #endif
-
 /* touch panel probe */
 static int tpd_probe(struct platform_device *pdev)
 {
@@ -463,7 +462,6 @@ static int tpd_probe(struct platform_device *pdev)
 	register_early_suspend(&MTK_TS_early_suspend_handler);
 #endif
 #endif
-
 #ifdef CONFIG_TOUCHSCREEN_PREVENT_SLEEP
 	if ((g_tpd_drv->suspend != NULL) && (g_tpd_drv->resume != NULL)) {
 		if ((nyx_suspend == NULL) && (nyx_resume == NULL)) {
@@ -479,7 +477,6 @@ static int tpd_probe(struct platform_device *pdev)
 		}
 	}
 #endif
-
 /* #ifdef TPD_TYPE_CAPACITIVE */
 	/* TPD_TYPE_CAPACITIVE handle */
 	if (touch_type == 1) {
