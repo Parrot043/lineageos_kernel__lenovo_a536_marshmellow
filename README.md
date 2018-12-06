@@ -1,4 +1,4 @@
-## Lenovo A536 kernel marshmello
+## Lenovo A536 kernel marshmellow
 Unofficial codename - alps
 
 Basic   | Spec Sheet
