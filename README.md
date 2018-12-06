@@ -1,4 +1,4 @@
-## Lenovo A536 kernel nougat
+## Lenovo A536 kernel marshmello
 Unofficial codename - alps
 
 Basic   | Spec Sheet
